@@ -1,13 +1,16 @@
-{pkgs, ...}: let cursor = pkgs.catppuccin-cursors.macchiatoSky; in {
+{pkgs, ...}: let
+  cursor = pkgs.catppuccin-cursors.macchiatoSky;
+in {
   programs.hyprland.enable = true;
 
   environment.systemPackages = [
     cursor
+    pkgs.dunst
   ];
 
   security.pam.services.hyprlock = {};
   home-manager.users.albarn = let
-    wallpaper = ./wallpapers/forrest.png;
+    wallpaper = ./wallpapers/shaded_landscape.png;
   in {
     gtk.cursorTheme = {
       package = cursor;
@@ -16,6 +19,10 @@
       package = cursor;
       name = "catppuccin-macchiato-sky-cursors";
       x11.enable = true;
+    };
+
+    services.dunst = {
+      enable = true;
     };
 
     programs.hyprlock = {
@@ -101,8 +108,10 @@
         ];
 
         env = [
-        "HYPRCURSOR_THEME,catppuccin-macchiato-sky-cursors"
-        "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24"];
+          "HYPRCURSOR_THEME,catppuccin-macchiato-sky-cursors"
+          "XCURSOR_SIZE,24"
+          "HYPRCURSOR_SIZE,24"
+        ];
 
         exec = ["${pkgs.hyprpaper}/bin/hyprpaper &"];
 

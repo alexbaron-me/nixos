@@ -3,6 +3,10 @@
   inputs,
   ...
 }: {
+  users.users.albarn.packages = with pkgs; [
+    firefox
+  ];
+
   home-manager.users.albarn = {
     programs.firefox = {
       enable = true;
