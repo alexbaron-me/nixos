@@ -3,6 +3,12 @@ return {
   dependencies = {
     "tpope/vim-repeat"
   },
+  priority = 100,
+  keys = {
+    { "s", mode = { "n", "x", "o" }, desc = "Leap Forward to" },
+    { "S", mode = { "n", "x", "o" }, desc = "Leap Backward to" },
+    { "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" }
+  },
   config = function()
     local leap = require("leap")
     leap.opts.equivalence_classes = { ' \t\r\n', 'aä', 'oö', 'uü', 'sß' }
