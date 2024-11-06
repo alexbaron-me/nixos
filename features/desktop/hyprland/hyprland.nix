@@ -6,11 +6,13 @@ in {
   environment.systemPackages = [
     cursor
     pkgs.dunst
+    pkgs.hyprpaper
+    pkgs.hyprpolkitagent
   ];
 
   security.pam.services.hyprlock = {};
   home-manager.users.albarn = let
-    wallpaper = ./wallpapers/shaded_landscape.png;
+    wallpaper = ./wallpapers/forrest.png;
   in {
     gtk.cursorTheme = {
       package = cursor;
@@ -91,6 +93,7 @@ in {
         preload = ["${wallpaper}"];
         wallpaper = [
           "eDP-1,${wallpaper}"
+          "DP-2,${wallpaper}"
         ];
       };
     };
@@ -104,6 +107,7 @@ in {
       settings = {
         monitor = [
           "eDP-1, 1920x1080, 0x0, 1"
+          "DP-2, preferred, auto-up, 1"
           ",preferred,auto,auto"
         ];
 
@@ -182,7 +186,7 @@ in {
           "$mainMod, M, exit,"
           "$mainMod, E, exec, ${file_manager}"
           "$mainMod, V, togglefloating,"
-          "$mainMod, R, exec, ${menu}"
+          "$mainMod, Space, exec, ${menu}"
           "$mainMod, P, pseudo,"
           "$mainMod, J, togglesplit,"
           "$mainMod, F, fullscreen"
