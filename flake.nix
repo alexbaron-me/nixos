@@ -34,6 +34,11 @@
 
     nixosConfigurations = {
       albarn-t490s = lib.mkSystem {
+        modules = [
+          {
+            albarn.fingerprint.enable = true;
+          }
+        ];
         extraDirs = [./hosts/albarn-t490s];
         features = ["common" "desktop"];
       };
