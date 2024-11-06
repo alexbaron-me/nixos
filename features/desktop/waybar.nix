@@ -97,7 +97,7 @@
         format-icons = {
           default = ["" " " " "];
         };
-        on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+        on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
       };
       "custom/lock" = {
         tooltip = false;
