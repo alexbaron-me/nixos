@@ -9,12 +9,13 @@
       enable = true;
       enableZshIntegration = true;
       settings = {
-        show_hidden = true;
-        show_symlink = true;
-        scrolloff = 4;
+        manager = {
+          show_hidden = true;
+          show_symlink = true;
+          scrolloff = 4;
+        };
         preview = {
           tab_size = 2;
-          image_delay = 150;
         };
       };
       keymap = {
