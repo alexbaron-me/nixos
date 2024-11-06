@@ -76,7 +76,7 @@
           critical = 15;
         };
         format = "{icon} {capacity}%";
-        format-charging = "󰂄";
+        format-charging = "󰂄 {capacity}%";
         format-plugged = "";
         format-icons = [
           "󰁺"
