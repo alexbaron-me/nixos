@@ -3,6 +3,7 @@
     neovim
     gh # Used by octo
     fzy # Used by telescope
+    ripgrep # Also used by telescope
 
     imagemagick # Used for image rendering
   ];
