@@ -10,6 +10,8 @@
     extraGroups = ["wheel"];
   };
 
+  services.tailscale.enable = true;
+
   # 1Password CLI on all devices
   programs._1password.enable = true;
 

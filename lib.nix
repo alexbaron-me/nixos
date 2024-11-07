@@ -1,4 +1,4 @@
-{inputs, ...}: let
+{inputs, outputs, ...}: let
   utils = rec {
     # Converts a list of strings to paths, using `base` as the path prefix
     pathify = base: names: map (name: base + "/${name}") names;
@@ -52,7 +52,7 @@ in {
   }:
     inputs.nixpkgs.lib.nixosSystem {
       system = system;
-      extraArgs = {inherit inputs;};
+      extraArgs = {inherit inputs outputs;};
       modules =
         [
           inputs.catppuccin.nixosModules.catppuccin

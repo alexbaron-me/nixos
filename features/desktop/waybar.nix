@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, outputs, ...}: {
   home-manager.users.albarn.programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -7,7 +7,7 @@
       position = "top";
       modules-left = ["hyprland/workspaces" "privacy"];
       modules-center = ["custom/music"];
-      modules-right = ["privacy" "pulseaudio" "backlight" "battery" "clock" "network" "tray" "custom/lock" "custom/power"];
+      modules-right = ["privacy" "pulseaudio" "backlight" "battery" "clock" "network" "custom/tailscale" "tray" "custom/lock" "custom/power"];
       "hyprland/workspaces" = {
         disable-scroll = true;
         format = " {icon} ";
@@ -58,6 +58,18 @@
         exec = "${pkgs.playerctl}/bin/playerctl metadata --format='{{ title }} - {{ artist }}'";
         on-click = "${pkgs.playerctl}/bin/playerctl play-pause";
         max-length = 50;
+      };
+      "custom/tailscale" = {
+        format = "{icon}";
+        format-icons = {
+          active = "󰒘";
+          active-exitnode = "󰴳";
+          inactive = "󰦞";
+        };
+        escape = true;
+        interval = 5;
+        exec = "${outputs.packages.${pkgs.system}.tailscale_status}/bin/tailscale_status";
+        return-type = "json";
       };
       clock = {
         timezone = "Europe/Berlin";
@@ -184,6 +196,7 @@
       }
 
       #custom-music,
+      #custom-tailscale,
       #tray,
       #backlight,
       #clock,
@@ -203,6 +216,9 @@
 
       #network {
         color: @green;
+      }
+
+      #custom-tailscale {
         border-radius: 0px 1rem 1rem 0px;
         padding-right: 1.5rem;
         margin-right: 1rem;
