@@ -23,6 +23,7 @@
     fd
     ripgrep
     nh
+    jq
 
     yazi
     btop
