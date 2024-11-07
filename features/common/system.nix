@@ -16,7 +16,10 @@
   environment.systemPackages = with pkgs; [
     wget
     gcc
+    zip
+    unzip
     fd
+    ripgrep
     nh
 
     yazi
